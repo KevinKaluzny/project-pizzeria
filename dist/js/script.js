@@ -54,7 +54,7 @@ const select = {
 
   class Product {
     constructor() {
-      const thisPriduct = this;
+      const thisProduct = this;
 
       console.log('new Product:', thisProduct);
     }
