@@ -80,7 +80,7 @@ const select = {
     }
 
     initAccordion() {
-
+      const thisProduct = this;
     }
   }
 
