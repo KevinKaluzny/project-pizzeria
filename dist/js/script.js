@@ -78,6 +78,10 @@ const select = {
       /* add element to menu */
       menuContainer.appendChild(thisProduct.element);
     }
+
+    initAccordion() {
+
+    }
   }
 
   const app = {
