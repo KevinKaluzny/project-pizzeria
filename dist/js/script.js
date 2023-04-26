@@ -73,6 +73,7 @@ const select = {
       thisProduct.element = utils.createDOMFromHTML(generatedHTML);
 
       /* find menu container */
+      const menuContainer = select.containerOf.menu;
 
       /* add element to menu */
     }
