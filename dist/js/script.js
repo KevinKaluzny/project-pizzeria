@@ -65,6 +65,14 @@ const select = {
 
     renderInMenu() {
       const thisProduct = this;
+
+      /* generate HTML based on template */
+
+      /* create element using utils.createElementFromHTML */
+
+      /* find menu container */
+
+      /* add element to menu */
     }
   }
 
