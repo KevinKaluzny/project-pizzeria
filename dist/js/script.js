@@ -67,6 +67,7 @@ const select = {
       const thisProduct = this;
 
       /* generate HTML based on template */
+      const generatedHTML = templates.menuProduct(thisProduct.data);
 
       /* create element using utils.createElementFromHTML */
 
