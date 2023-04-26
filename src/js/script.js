@@ -56,6 +56,9 @@ const select = {
     constructor(id, data) {
       const thisProduct = this;
 
+      thisProduct.id = id;
+      thisProduct.data = data;
+
       console.log('new Product:', thisProduct);
     }
   }
