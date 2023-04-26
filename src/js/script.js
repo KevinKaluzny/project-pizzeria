@@ -61,6 +61,10 @@ const select = {
 
       console.log('new Product:', thisProduct);
     }
+
+    renderInMenu() {
+      const thisProduct = this;
+    }
   }
 
   const app = {
