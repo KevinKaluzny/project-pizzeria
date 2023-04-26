@@ -59,6 +59,7 @@ const select = {
       thisProduct.id = id;
       thisProduct.data = data;
       thisProduct.renderInMenu();
+      this.initAccordion();
 
       console.log('new Product:', thisProduct);
     }
