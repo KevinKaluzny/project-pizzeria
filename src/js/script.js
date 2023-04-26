@@ -58,6 +58,7 @@ const select = {
 
       thisProduct.id = id;
       thisProduct.data = data;
+      thisProduct.renderInMenu();
 
       console.log('new Product:', thisProduct);
     }
