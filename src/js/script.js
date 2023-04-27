@@ -62,7 +62,7 @@ const select = {
       thisProduct.getElements();
       this.initAccordion();
       thisProduct.initOrderForm();
-      thisProduct.processorOrder();
+      thisProduct.processOrder();
 
       console.log('new Product:', thisProduct);
     }
@@ -136,7 +136,7 @@ const select = {
       });
     }
 
-    processorOrder() {
+    processOrder() {
       const thisProduct = this;
 
       console.log('processorOrder()');
