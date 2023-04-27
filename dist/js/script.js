@@ -111,6 +111,10 @@ const select = {
         thisProduct.element.classList.toggle(classNames.menuProduct.wrapperActive);
       });
     }
+
+    initOrderForm() {
+      const thisProduct = this;
+    }
   }
 
   const app = {
