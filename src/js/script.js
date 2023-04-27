@@ -114,10 +114,14 @@ const select = {
 
     initOrderForm() {
       const thisProduct = this;
+
+      console.log('initOrderForm()');
     }
 
     processorOrder() {
       const thisProduct = this;
+
+      console.log('processorOrder()');
     }
   }
 
