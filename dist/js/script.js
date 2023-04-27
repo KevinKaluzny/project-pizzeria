@@ -61,6 +61,8 @@ const select = {
       thisProduct.renderInMenu();
       thisProduct.getElements();
       this.initAccordion();
+      thisProduct.initOrderForm();
+      thisProduct.processorOrder();
 
       console.log('new Product:', thisProduct);
     }
