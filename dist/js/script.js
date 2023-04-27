@@ -115,6 +115,10 @@ const select = {
     initOrderForm() {
       const thisProduct = this;
     }
+
+    processorOrder() {
+      const thisProduct = this;
+    }
   }
 
   const app = {
