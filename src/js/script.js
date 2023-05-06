@@ -157,8 +157,16 @@ const select = {
           // determine option value, e.g. optionId = 'olives', option = { label: 'Olives', price: 2, default: true }
           const option = param.options[optionId];
           console.log(optionId, option);
+
+          if (option.hasOwnProperty('default') && !formData[paramId].includes(optionId)) {
+            price -= option.price;
+          } else if (!option.hasOwnProperty('default') && formData[paramId].includes(optionId)) {
+            price += option.price;
+          }
         }
       }
+
+      console.log(price);
     
       // update calculated price in the HTML
       thisProduct.priceElem.innerHTML = price;
