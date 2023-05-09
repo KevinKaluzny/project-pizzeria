@@ -190,6 +190,7 @@
       console.log('constructor arguments:', element);
 
       thisWidget.getElements(element);
+      setValue('12');
     }
 
     getElements(element) {
@@ -199,6 +200,18 @@
       thisWidget.input = thisWidget.element.querySelector(select.widgets.amount.input);
       thisWidget.linkDecrease = thisWidget.element.querySelector(select.widgets.amount.linkDecrease);
       thisWidget.linkIncrease = thisWidget.element.querySelector(select.widgets.amount.linkIncrease);
+    }
+
+    setValue(value) {
+      const thisWidget = this;
+
+      const newValue = parseInt(value);
+
+      /* TODO: Add validation */
+
+      thisWidget.value = newValue;
+      thisWidget.input.value = thisWidget.value;
+      console.log('thisWidget.input.value:', thisWidget.input.value);
     }
   }
   /* eslint-enable no-unused-vars */
