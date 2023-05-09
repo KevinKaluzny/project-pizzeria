@@ -192,7 +192,7 @@
       thisWidget.getElements
     }
 
-    getElements() {
+    getElements(element) {
       const thisWidget = this;
 
       thisWidget.element = element;
