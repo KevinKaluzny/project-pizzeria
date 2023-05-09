@@ -173,6 +173,17 @@ const select = {
     }
   }
 
+  /* eslint-disable  no-unused-vars */
+  class AmountWidget { 
+    constructor(element) {
+      const thisWidget = this;
+
+      console.log('AmountWidget:', thisWidget);
+      console.log('constructor arguments:', element);
+    }
+  }
+  /* eslint-enable no-unused-vars */
+
   const app = {
     initMenu: function() {
       const thisApp = this;
