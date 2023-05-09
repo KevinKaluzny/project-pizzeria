@@ -190,7 +190,7 @@
       console.log('constructor arguments:', element);
 
       thisWidget.getElements(element);
-      thisWidget.setValue('12');
+      // thisWidget.setValue('12');
     }
 
     getElements(element) {
