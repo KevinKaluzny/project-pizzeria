@@ -211,7 +211,7 @@
 
       thisWidget.value = newValue;
       thisWidget.input.value = thisWidget.value;
-      console.log('thisWidget.input.value:', thisWidget.input.value);
+      // console.log('thisWidget.input.value:', thisWidget.input.value);
     }
   }
   /* eslint-enable no-unused-vars */
