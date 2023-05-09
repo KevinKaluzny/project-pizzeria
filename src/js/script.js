@@ -3,7 +3,7 @@
 {
   'use strict';
 
-const select = {
+  const select = {
   templateOf: {
     menuProduct: "#template-menu-product",
     },
