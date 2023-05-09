@@ -64,7 +64,7 @@ const select = {
       thisProduct.initOrderForm();
       thisProduct.processOrder();
 
-      console.log('new Product:', thisProduct);
+      // console.log('new Product:', thisProduct);
     }
 
     renderInMenu() {
@@ -117,7 +117,7 @@ const select = {
     initOrderForm() {
       const thisProduct = this;
 
-      console.log('initOrderForm()');
+      // console.log('initOrderForm()');
 
       thisProduct.form.addEventListener('submit', function(event){
         event.preventDefault();
@@ -141,7 +141,7 @@ const select = {
     
       // covert form to object structure e.g. { sauce: ['tomato'], toppings: ['olives', 'redPeppers']}
       const formData = utils.serializeFormToObject(thisProduct.form);
-      console.log('formData', formData);
+      // console.log('formData', formData);
     
       // set price to default price
       let price = thisProduct.data.price;
@@ -150,13 +150,13 @@ const select = {
       for(let paramId in thisProduct.data.params) {
         // determine param value, e.g. paramId = 'toppings', param = { label: 'Toppings', type: 'checkboxes'... }
         const param = thisProduct.data.params[paramId];
-        console.log(paramId, param);
+        // console.log(paramId, param);
     
         // for every option in this category
         for(let optionId in param.options) {
           // determine option value, e.g. optionId = 'olives', option = { label: 'Olives', price: 2, default: true }
           const option = param.options[optionId];
-          console.log(optionId, option);
+          // console.log(optionId, option);
 
           if (option.hasOwnProperty('default') && !formData[paramId].includes(optionId)) {
             price -= option.price;
@@ -166,7 +166,7 @@ const select = {
         }
       }
 
-      console.log(price);
+      // console.log(price);
     
       // update calculated price in the HTML
       thisProduct.priceElem.innerHTML = price;
@@ -178,8 +178,8 @@ const select = {
     constructor(element) {
       const thisWidget = this;
 
-      console.log('AmountWidget:', thisWidget);
-      console.log('constructor arguments:', element);
+      // console.log('AmountWidget:', thisWidget);
+      // console.log('constructor arguments:', element);
     }
   }
   /* eslint-enable no-unused-vars */
@@ -188,7 +188,7 @@ const select = {
     initMenu: function() {
       const thisApp = this;
 
-      console.log('thisApp.data', thisApp.data);
+      // console.log('thisApp.data', thisApp.data);
 
       for (let productData in thisApp.data.products) {
         new Product(productData, thisApp.data.products[productData]);
@@ -201,11 +201,11 @@ const select = {
     },
     init: function(){
       const thisApp = this;
-      console.log('*** App starting ***');
-      console.log('thisApp:', thisApp);
-      console.log('classNames:', classNames);
-      console.log('settings:', settings);
-      console.log('templates:', templates);
+      // console.log('*** App starting ***');
+      // console.log('thisApp:', thisApp);
+      // console.log('classNames:', classNames);
+      // console.log('settings:', settings);
+      // console.log('templates:', templates);
       thisApp.initData();
       thisApp.initMenu();
     },
