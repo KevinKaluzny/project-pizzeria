@@ -188,6 +188,8 @@
 
       // console.log('AmountWidget:', thisWidget);
       // console.log('constructor arguments:', element);
+
+      thisWidget.getElements(element);
     }
   }
   /* eslint-enable no-unused-vars */
