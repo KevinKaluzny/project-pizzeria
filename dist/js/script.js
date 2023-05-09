@@ -209,8 +209,11 @@
 
       /* TODO: Add validation */
 
-      thisWidget.value = newValue;
-      thisWidget.input.value = thisWidget.value;
+      if (newValue >= 0 && newValue <= 10) {
+        thisWidget.value = newValue;
+        thisWidget.input.value = thisWidget.value;
+      }
+
       // console.log('thisWidget.input.value:', thisWidget.input.value);
     }
   }
