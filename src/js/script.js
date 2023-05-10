@@ -222,6 +222,8 @@
       console.log('Function initActions() works!');
 
       const thisWidget = this;
+      
+      this.input.addEventListener('change', this.setValue);
     }
   }
   /* eslint-enable no-unused-vars */
