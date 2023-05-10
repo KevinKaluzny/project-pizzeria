@@ -44,7 +44,7 @@
     amountWidget: {
       defaultValue: 1,
       defaultMin: 0,
-      defaultMax: 9,
+      defaultMax: 10,
     }
   };
 
