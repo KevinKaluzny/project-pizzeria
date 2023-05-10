@@ -242,6 +242,13 @@
         thisWidget.setValue(thisWidget.value + 1);
       })
     }
+
+    announce() {
+      const thisWidget = this;
+
+      const event = new Event('updated');
+      thisWidget.element.dispatchEvent(event);
+    }
   }
   /* eslint-enable no-unused-vars */
 
