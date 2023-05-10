@@ -224,6 +224,8 @@
       // console.log('thisWidget.value !== newValue:', thisWidget.value !== newValue);
 
       // console.log('thisWidget.input.value:', thisWidget.input.value);
+
+      thisWidget.announce();
     }
 
     initActions() {
