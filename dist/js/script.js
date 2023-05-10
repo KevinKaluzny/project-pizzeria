@@ -43,7 +43,7 @@
   const settings = { // eslint-disable-line no-unused-vars
     amountWidget: {
       defaultValue: 1,
-      defaultMin: 1,
+      defaultMin: 0,
       defaultMax: 9,
     }
   };
