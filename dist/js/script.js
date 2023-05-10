@@ -177,6 +177,7 @@
     initAmountWidget() {
       const thisProduct = this;
 
+      thisProduct.amountWidgetElem.addEventListener('updated', function() {thisProduct.processOrder()});
       thisProduct.amountWidget = new AmountWidget(thisProduct.amountWidgetElem);
     }
   }
