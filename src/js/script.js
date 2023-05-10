@@ -210,7 +210,7 @@
 
       /* TODO: Add validation */
 
-      if (isNaN(newValue) == false && thisWidget.value !== newValue) {
+      if (isNaN(newValue) == false && thisWidget.value !== newValue && newValue >= settings.amountWidget.defaultMin && newValue <= settings.amountWidget.defaultMax) {
         thisWidget.value = newValue;
         thisWidget.input.value = thisWidget.value;
       } else {
