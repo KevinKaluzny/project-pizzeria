@@ -220,6 +220,8 @@
 
     initActions() {
       console.log('Function initActions() works!');
+
+      const thisWidget = this;
     }
   }
   /* eslint-enable no-unused-vars */
