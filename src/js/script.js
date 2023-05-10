@@ -233,6 +233,10 @@
       thisWidget.input.addEventListener('change', function() {
         thisWidget.setValue(thisWidget.input.value)
       });
+      thisWidget.linkDecrease.addEventListener('click', function(event) {
+        event.preventDefault();
+        thisWidget.setValue(thisWidget.value - 1);
+      })
     }
   }
   /* eslint-enable no-unused-vars */
