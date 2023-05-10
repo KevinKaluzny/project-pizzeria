@@ -209,7 +209,7 @@
 
       /* TODO: Add validation */
 
-      if (newValue >= 0 && newValue <= 10) {
+      if (thisWidget.value !== newValue) {
         thisWidget.value = newValue;
         thisWidget.input.value = thisWidget.value;
       }
