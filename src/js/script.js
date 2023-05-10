@@ -215,6 +215,10 @@
         thisWidget.input.value = thisWidget.value;
       }
 
+      console.log('isNaN(newValue):', isNaN(newValue));
+      console.log('newValue:', newValue);
+      console.log('thisWidget.value !== newValue:', thisWidget.value !== newValue);
+
       // console.log('thisWidget.input.value:', thisWidget.input.value);
     }
 
@@ -223,7 +227,9 @@
 
       const thisWidget = this;
       
-      this.input.addEventListener('change', this.setValue);
+      thisWidget.input.addEventListener('change', function() {
+        thisWidget.setValue(thisWidget.input.value)
+      });
     }
   }
   /* eslint-enable no-unused-vars */
