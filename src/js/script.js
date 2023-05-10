@@ -169,6 +169,11 @@
       }
 
       // console.log(price);
+
+      /* multiply price by amount */
+      if (thisProduct.amountWidget?.value !== undefined) {
+        price *= thisProduct.amountWidget.value;
+      }
     
       // update calculated price in the HTML
       thisProduct.priceElem.innerHTML = price;
