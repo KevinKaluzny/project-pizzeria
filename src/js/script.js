@@ -191,6 +191,7 @@
 
       thisWidget.getElements(element);
       thisWidget.setValue(thisWidget.input.value);
+      thisWidget.initActions();
     }
 
     getElements(element) {
@@ -215,6 +216,10 @@
       }
 
       // console.log('thisWidget.input.value:', thisWidget.input.value);
+    }
+
+    initActions() {
+      console.log('Function initActions() works!');
     }
   }
   /* eslint-enable no-unused-vars */
