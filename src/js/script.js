@@ -210,9 +210,12 @@
 
       /* TODO: Add validation */
 
-      if (isNaN(newValue) == false && newValue !== null && thisWidget.value !== newValue) {
+      if (isNaN(newValue) == false && thisWidget.value !== newValue) {
         thisWidget.value = newValue;
         thisWidget.input.value = thisWidget.value;
+      } else {
+        thisWidget.input.value = thisWidget.value;
+        console.log('It works!');
       }
 
       console.log('isNaN(newValue):', isNaN(newValue));
