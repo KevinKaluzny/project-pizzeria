@@ -71,35 +71,37 @@
     renderInMenu() {
       const thisProduct = this;
 
+      thisProduct.dom = {};
+
       /* generate HTML based on template */
       const generatedHTML = templates.menuProduct(thisProduct.data);
 
       /* create element using utils.createElementFromHTML */
-      thisProduct.element = utils.createDOMFromHTML(generatedHTML);
+      thisProduct.dom.element = utils.createDOMFromHTML(generatedHTML);
 
       /* find menu container */
       const menuContainer = document.querySelector(select.containerOf.menu);
 
       /* add element to menu */
-      menuContainer.appendChild(thisProduct.element);
+      menuContainer.appendChild(thisProduct.dom.element);
     }
 
     getElements(){
       const thisProduct = this;
     
-      thisProduct.accordionTrigger = thisProduct.element.querySelector(select.menuProduct.clickable);
-      thisProduct.form = thisProduct.element.querySelector(select.menuProduct.form);
-      thisProduct.formInputs = thisProduct.form.querySelectorAll(select.all.formInputs);
-      thisProduct.cartButton = thisProduct.element.querySelector(select.menuProduct.cartButton);
-      thisProduct.priceElem = thisProduct.element.querySelector(select.menuProduct.priceElem);
-      thisProduct.amountWidgetElem = thisProduct.element.querySelector(select.menuProduct.amountWidget);
+      thisProduct.dom.accordionTrigger = thisProduct.dom.element.querySelector(select.menuProduct.clickable);
+      thisProduct.dom.form = thisProduct.dom.element.querySelector(select.menuProduct.form);
+      thisProduct.dom.formInputs = thisProduct.dom.form.querySelectorAll(select.all.formInputs);
+      thisProduct.dom.cartButton = thisProduct.dom.element.querySelector(select.menuProduct.cartButton);
+      thisProduct.dom.priceElem = thisProduct.dom.element.querySelector(select.menuProduct.priceElem);
+      thisProduct.dom.amountWidgetElem = thisProduct.dom.element.querySelector(select.menuProduct.amountWidget);
     }
 
     initAccordion() {
       const thisProduct = this;
   
       /* START: add event listener to clickable trigger on event click */
-      thisProduct.accordionTrigger.addEventListener('click', function(event) {
+      thisProduct.dom.accordionTrigger.addEventListener('click', function(event) {
         /* prevent default action for event */
         event.preventDefault();
   
@@ -107,12 +109,12 @@
         const activeProduct = document.querySelector(select.all.menuProductsActive);
   
         /* if there is active product and it's not thisProduct.element, remove class active from it */
-        if (activeProduct !== null & activeProduct != thisProduct.element) {
+        if (activeProduct !== null & activeProduct != thisProduct.dom.element) {
           activeProduct.classList.remove(classNames.menuProduct.wrapperActive);
         }
   
         /* toggle active class on thisProduct.element */
-        thisProduct.element.classList.toggle(classNames.menuProduct.wrapperActive);
+        thisProduct.dom.element.classList.toggle(classNames.menuProduct.wrapperActive);
       });
     }
 
@@ -121,18 +123,18 @@
 
       // console.log('initOrderForm()');
 
-      thisProduct.form.addEventListener('submit', function(event){
+      thisProduct.dom.form.addEventListener('submit', function(event){
         event.preventDefault();
         thisProduct.processOrder();
       });
       
-      for(let input of thisProduct.formInputs){
+      for(let input of thisProduct.dom.formInputs){
         input.addEventListener('change', function(){
           thisProduct.processOrder();
         });
       }
       
-      thisProduct.cartButton.addEventListener('click', function(event){
+      thisProduct.dom.cartButton.addEventListener('click', function(event){
         event.preventDefault();
         thisProduct.processOrder();
       });
@@ -142,7 +144,7 @@
       const thisProduct = this;
     
       // covert form to object structure e.g. { sauce: ['tomato'], toppings: ['olives', 'redPeppers']}
-      const formData = utils.serializeFormToObject(thisProduct.form);
+      const formData = utils.serializeFormToObject(thisProduct.dom.form);
       // console.log('formData', formData);
     
       // set price to default price
@@ -176,14 +178,14 @@
       }
     
       // update calculated price in the HTML
-      thisProduct.priceElem.innerHTML = price;
+      thisProduct.dom.priceElem.innerHTML = price;
     }
 
     initAmountWidget() {
       const thisProduct = this;
 
-      thisProduct.amountWidgetElem.addEventListener('updated', function() {thisProduct.processOrder()});
-      thisProduct.amountWidget = new AmountWidget(thisProduct.amountWidgetElem);
+      thisProduct.dom.amountWidgetElem.addEventListener('updated', function() {thisProduct.processOrder()});
+      thisProduct.amountWidget = new AmountWidget(thisProduct.dom.amountWidgetElem);
     }
   }
 
