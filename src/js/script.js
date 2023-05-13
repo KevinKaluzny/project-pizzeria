@@ -95,6 +95,7 @@
       thisProduct.dom.cartButton = thisProduct.dom.element.querySelector(select.menuProduct.cartButton);
       thisProduct.dom.priceElem = thisProduct.dom.element.querySelector(select.menuProduct.priceElem);
       thisProduct.dom.amountWidgetElem = thisProduct.dom.element.querySelector(select.menuProduct.amountWidget);
+      thisProduct.dom.imageWrapper = thisProduct.dom.element.querySelector(select.menuProduct.imageWrapper);
     }
 
     initAccordion() {
