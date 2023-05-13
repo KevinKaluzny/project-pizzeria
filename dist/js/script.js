@@ -4,8 +4,8 @@
   'use strict';
 
   const select = {
-  templateOf: {
-    menuProduct: "#template-menu-product",
+    templateOf: {
+      menuProduct: "#template-menu-product",
     },
     containerOf: {
       menu: '#product-list',
@@ -86,9 +86,9 @@
       menuContainer.appendChild(thisProduct.dom.element);
     }
 
-    getElements(){
+    getElements() {
       const thisProduct = this;
-    
+
       thisProduct.dom.accordionTrigger = thisProduct.dom.element.querySelector(select.menuProduct.clickable);
       thisProduct.dom.form = thisProduct.dom.element.querySelector(select.menuProduct.form);
       thisProduct.dom.formInputs = thisProduct.dom.form.querySelectorAll(select.all.formInputs);
@@ -100,20 +100,20 @@
 
     initAccordion() {
       const thisProduct = this;
-  
+
       /* START: add event listener to clickable trigger on event click */
-      thisProduct.dom.accordionTrigger.addEventListener('click', function(event) {
+      thisProduct.dom.accordionTrigger.addEventListener('click', function (event) {
         /* prevent default action for event */
         event.preventDefault();
-  
+
         /* find active product (product that has active class) */
         const activeProduct = document.querySelector(select.all.menuProductsActive);
-  
+
         /* if there is active product and it's not thisProduct.element, remove class active from it */
         if (activeProduct !== null & activeProduct != thisProduct.dom.element) {
           activeProduct.classList.remove(classNames.menuProduct.wrapperActive);
         }
-  
+
         /* toggle active class on thisProduct.element */
         thisProduct.dom.element.classList.toggle(classNames.menuProduct.wrapperActive);
       });
@@ -124,18 +124,18 @@
 
       // console.log('initOrderForm()');
 
-      thisProduct.dom.form.addEventListener('submit', function(event){
+      thisProduct.dom.form.addEventListener('submit', function (event) {
         event.preventDefault();
         thisProduct.processOrder();
       });
-      
-      for(let input of thisProduct.dom.formInputs){
-        input.addEventListener('change', function(){
+
+      for (let input of thisProduct.dom.formInputs) {
+        input.addEventListener('change', function () {
           thisProduct.processOrder();
         });
       }
-      
-      thisProduct.dom.cartButton.addEventListener('click', function(event){
+
+      thisProduct.dom.cartButton.addEventListener('click', function (event) {
         event.preventDefault();
         thisProduct.processOrder();
       });
@@ -143,22 +143,22 @@
 
     processOrder() {
       const thisProduct = this;
-    
+
       // covert form to object structure e.g. { sauce: ['tomato'], toppings: ['olives', 'redPeppers']}
       const formData = utils.serializeFormToObject(thisProduct.dom.form);
       // console.log('formData', formData);
-    
+
       // set price to default price
       let price = thisProduct.data.price;
-    
+
       // for every category (param)...
-      for(let paramId in thisProduct.data.params) {
+      for (let paramId in thisProduct.data.params) {
         // determine param value, e.g. paramId = 'toppings', param = { label: 'Toppings', type: 'checkboxes'... }
         const param = thisProduct.data.params[paramId];
         // console.log(paramId, param);
-    
+
         // for every option in this category
-        for(let optionId in param.options) {
+        for (let optionId in param.options) {
           // determine option value, e.g. optionId = 'olives', option = { label: 'Olives', price: 2, default: true }
           const option = param.options[optionId];
           // console.log(optionId, option);
@@ -167,6 +167,19 @@
             price -= option.price;
           } else if (!option.hasOwnProperty('default') && formData[paramId].includes(optionId)) {
             price += option.price;
+          }
+
+          const imageClass = paramId + '-' + optionId;
+          const image = thisProduct.dom.imageWrapper.querySelector('img.' + imageClass);
+
+          if (formData[paramId].includes(optionId)) {
+            if (image !== null) {
+              image.classList.add(classNames.menuProduct.imageVisible);
+            }
+          } else {
+            if (image !== null) {
+              image.classList.remove(classNames.menuProduct.imageVisible);
+            }
           }
         }
       }
@@ -177,7 +190,7 @@
       if (thisProduct.amountWidget?.value !== undefined) {
         price *= thisProduct.amountWidget.value;
       }
-    
+
       // update calculated price in the HTML
       thisProduct.dom.priceElem.innerHTML = price;
     }
@@ -185,12 +198,12 @@
     initAmountWidget() {
       const thisProduct = this;
 
-      thisProduct.dom.amountWidgetElem.addEventListener('updated', function() {thisProduct.processOrder()});
+      thisProduct.dom.amountWidgetElem.addEventListener('updated', function () { thisProduct.processOrder() });
       thisProduct.amountWidget = new AmountWidget(thisProduct.dom.amountWidgetElem);
     }
   }
 
-  class AmountWidget { 
+  class AmountWidget {
     constructor(element) {
       const thisWidget = this;
 
@@ -239,15 +252,15 @@
       console.log('Function initActions() works!');
 
       const thisWidget = this;
-      
-      thisWidget.input.addEventListener('change', function() {
+
+      thisWidget.input.addEventListener('change', function () {
         thisWidget.setValue(thisWidget.input.value)
       });
-      thisWidget.linkDecrease.addEventListener('click', function(event) {
+      thisWidget.linkDecrease.addEventListener('click', function (event) {
         event.preventDefault();
         thisWidget.setValue(thisWidget.value - 1);
       });
-      thisWidget.linkIncrease.addEventListener('click', function(event) {
+      thisWidget.linkIncrease.addEventListener('click', function (event) {
         event.preventDefault();
         thisWidget.setValue(thisWidget.value + 1);
       })
@@ -262,7 +275,7 @@
   }
 
   const app = {
-    initMenu: function() {
+    initMenu: function () {
       const thisApp = this;
 
       // console.log('thisApp.data', thisApp.data);
@@ -271,12 +284,12 @@
         new Product(productData, thisApp.data.products[productData]);
       }
     },
-    initData: function() {
+    initData: function () {
       const thisApp = this;
 
       thisApp.data = dataSource;
     },
-    init: function(){
+    init: function () {
       const thisApp = this;
       // console.log('*** App starting ***');
       // console.log('thisApp:', thisApp);
