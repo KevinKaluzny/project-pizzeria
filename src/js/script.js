@@ -247,6 +247,9 @@
       const thisProduct = this;
 
       const productSummary = {};
+      productSummary.id = thisProduct.id;
+      productSummary.name = thisProduct.data.name;
+      productSummary.amount = thisProduct.amountWidget;
     }
   }
 
