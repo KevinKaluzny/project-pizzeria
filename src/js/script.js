@@ -245,6 +245,8 @@
 
     prepareCartProduct() {
       const thisProduct = this;
+
+      const productSummary = {};
     }
   }
 
