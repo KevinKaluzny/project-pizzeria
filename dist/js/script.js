@@ -242,6 +242,10 @@
 
       app.cart.add(thisProduct);
     }
+
+    prepareCartProduct() {
+      
+    }
   }
 
   class AmountWidget {
