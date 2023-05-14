@@ -244,7 +244,7 @@
     }
 
     prepareCartProduct() {
-      
+      const thisProduct = this;
     }
   }
 
