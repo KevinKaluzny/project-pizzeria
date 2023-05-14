@@ -336,6 +336,12 @@
         thisCart.dom.wrapper.classList.toggle(classNames.cart.wrapperActive);
       });
     }
+
+    add(menuProduct) {
+      // thisCart = this;
+
+      console.log('adding product', menuProduct);
+    }
   }
 
   const app = {
