@@ -327,6 +327,10 @@
       thisCart.dom.wrapper = element;
       thisCart.dom.toggleTrigger = thisCart.dom.wrapper.querySelector(select.cart.toggleTrigger);
     }
+
+    initActions() {
+      
+    }
   }
 
   const app = {
