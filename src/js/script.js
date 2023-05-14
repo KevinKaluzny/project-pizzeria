@@ -331,6 +331,8 @@
 
     initActions() {
       const thisCart = this;
+
+      thisCart.dom.toggleTrigger.addEventListener('click', function() {});
     }
   }
 
