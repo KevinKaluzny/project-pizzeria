@@ -330,7 +330,7 @@
     }
 
     initActions() {
-
+      const thisCart = this;
     }
   }
 
