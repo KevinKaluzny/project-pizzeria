@@ -235,6 +235,12 @@
       thisProduct.dom.amountWidgetElem.addEventListener('updated', function () { thisProduct.processOrder() });
       thisProduct.amountWidget = new AmountWidget(thisProduct.dom.amountWidgetElem);
     }
+
+    addToCart() {
+      const thisProduct = this;
+
+      app.cart.add(thisProduct);
+    }
   }
 
   class AmountWidget {
