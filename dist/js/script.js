@@ -409,6 +409,8 @@
       thisCartProduct.params = menuProduct.params;
 
       thisCartProduct.getElements(element);
+
+      console.log('thisCartProduct:', thisCartProduct);
     }
 
     getElements(element) {
