@@ -423,7 +423,7 @@
       const thisCartProduct = this;
 
       thisCartProduct.dom.amountWidgetElem.addEventListener('updated', function() {
-        const price = thisCartProduct.amount * thisCartProduct.price;
+        const price = thisCartProduct.amount * thisCartProduct.priceSingle;
         thisCartProduct.dom.price.innerHTML = price;
       });
       thisCartProduct.amountWidget = new AmountWidget(thisCartProduct.dom.amountWidgetElem);
