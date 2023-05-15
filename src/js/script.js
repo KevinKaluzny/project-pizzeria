@@ -428,7 +428,10 @@
     initAmountWidget() {
       const thisCartProduct = this;
 
-      thisCartProduct.dom.amountWidgetElem.addEventListener('updated', function() {});
+      thisCartProduct.dom.amountWidgetElem.addEventListener('updated', function() {
+        const price = thisCartProduct.amount * thisCartProduct.price;
+        thisCartProduct.dom.price.innerHTML = price;
+      });
       thisCartProduct.amountWidget = new AmountWidget(thisCartProduct.dom.amountWidgetElem);
     }
   }
