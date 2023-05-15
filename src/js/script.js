@@ -394,6 +394,8 @@
 
       thisCart.dom.productList.appendChild(generatedDOM);
       thisCart.products.push(new CartProduct(menuProduct, generatedDOM));
+
+      thisCart.update();
     }
 
     update() {
