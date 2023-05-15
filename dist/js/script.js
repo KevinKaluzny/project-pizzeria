@@ -425,6 +425,8 @@
     
     initAmountWidget() {
       const thisCartProduct = this;
+
+      thisCartProduct.dom.amountWidgetElem.addEventListener('updated', function() {});
     }
   }
 
