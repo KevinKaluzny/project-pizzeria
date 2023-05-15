@@ -258,6 +258,10 @@
 
       return productSummary;
     }
+
+    prepareCartProductParams() {
+      
+    }
   }
 
   class AmountWidget {
