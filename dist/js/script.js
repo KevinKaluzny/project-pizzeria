@@ -391,7 +391,7 @@
 
       const generatedHTML = templates.cartProduct(menuProduct.prepareCartProduct());
       const generatedDOM = utils.createDOMFromHTML(generatedHTML);
-      
+
       const cartProduct = new CartProduct(menuProduct, generatedDOM);
 
       thisCart.products.push(menuProduct.prepareCartProduct());
@@ -421,8 +421,8 @@
       thisCartProduct.dom.wrapper = element;
       thisCartProduct.dom.amountWidget = thisCartProduct.dom.wrapper.querySelector(select.cartProduct.amountWidget);
       thisCartProduct.dom.price = thisCartProduct.dom.wrapper.querySelector(select.cartProduct.price);
-      thisCartProduct.dom.edit = thisCartProduct.dom.widgets.querySelector(select.cartProduct.edit);
-      thisCartProduct.dom.remove = thisCartProduct.dom.widgets.querySelector(select.cartProduct.remove);
+      thisCartProduct.dom.edit = thisCartProduct.dom.wrapper.querySelector(select.cartProduct.edit);
+      thisCartProduct.dom.remove = thisCartProduct.dom.wrapper.querySelector(select.cartProduct.remove);
     }
   }
 
