@@ -388,6 +388,8 @@
 
     add(menuProduct) {
       // thisCart = this;
+
+      const generatedHTML = templates.cartProduct(menuProduct.prepareCartProduct());
     }
   }
 
