@@ -228,6 +228,8 @@
 
       // update calculated price in the HTML
       thisProduct.dom.priceElem.innerHTML = price;
+
+      thisProduct.priceSingle = price;
     }
 
     initAmountWidget() {
