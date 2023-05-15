@@ -388,8 +388,6 @@
 
     add(menuProduct) {
       // thisCart = this;
-
-      console.log('adding product', menuProduct);
     }
   }
 
