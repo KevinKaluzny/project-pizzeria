@@ -398,7 +398,9 @@
   }
 
   class CartProduct {
-    
+    constructor(menuProduct, element) {
+      const thisCartProduct = this;
+    }
   }
 
   const app = {
