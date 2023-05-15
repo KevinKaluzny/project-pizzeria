@@ -391,6 +391,8 @@
 
       const generatedHTML = templates.cartProduct(menuProduct.prepareCartProduct());
       const generatedDOM = utils.createDOMFromHTML(generatedHTML);
+
+      thisCart.dom.productList.appendChild(generatedDOM);
     }
   }
 
