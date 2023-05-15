@@ -407,10 +407,12 @@
       thisCartProduct.priceSingle = menuProduct.priceSingle;
       thisCartProduct.price = menuProduct.price;
       thisCartProduct.params = menuProduct.params;
+
+      thisCartProduct.getElements(element);
     }
 
     getElements(element) {
-      
+
     }
   }
 
