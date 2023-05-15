@@ -424,7 +424,7 @@
     }
     
     initAmountWidget() {
-      
+      const thisCartProduct = this;
     }
   }
 
