@@ -408,6 +408,10 @@
       thisCartProduct.price = menuProduct.price;
       thisCartProduct.params = menuProduct.params;
     }
+
+    getElements(element) {
+      
+    }
   }
 
   const app = {
