@@ -260,7 +260,28 @@
     }
 
     prepareCartProductParams() {
-      
+      const thisProduct = this;
+
+      const formData = utils.serializeFormToObject(thisProduct.dom.form);
+      const optionsSummary = {};
+
+      for (let paramId in thisProduct.data.params) {
+        const param = thisProduct.data.params[paramId];
+
+        optionsSummary[paramId] = {};
+        optionsSummary[paramId].label = thisProduct.data.params[paramId].label;
+
+        for (let optionId in param.options) {
+          const option = param.options[optionId];
+
+          if (formData[paramId].includes(optionId)) {
+            optionsSummary[paramId].options = {};
+            optionsSummary[paramId].options[optionId] = option.label;
+          }
+        }
+      }
+
+      return optionsSummary;
     }
   }
 
