@@ -390,6 +390,7 @@
       // thisCart = this;
 
       const generatedHTML = templates.cartProduct(menuProduct.prepareCartProduct());
+      const generatedDOM = utils.createDOMFromHTML(generatedHTML);
     }
   }
 
