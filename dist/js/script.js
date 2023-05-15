@@ -331,8 +331,6 @@
     }
 
     initActions() {
-      console.log('Function initActions() works!');
-
       const thisWidget = this;
 
       thisWidget.input.addEventListener('change', function () {
@@ -364,8 +362,6 @@
 
       thisCart.getElements(element);
       thisCart.initActions();
-
-      console.log('new Cart', thisCart);
     }
 
     getElements(element) {
@@ -410,8 +406,6 @@
 
       thisCartProduct.getElements(element);
       thisCartProduct.initAmountWidget();
-
-      console.log('thisCartProduct:', thisCartProduct);
     }
 
     getElements(element) {
