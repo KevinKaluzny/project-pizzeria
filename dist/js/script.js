@@ -254,6 +254,7 @@
       productSummary.amount = thisProduct.amountWidget;
       productSummary.priceSingle = thisProduct.priceSingle;
       productSummary.price = thisProduct.priceSingle * thisProduct.amountWidget.value;
+      productSummary.params = {};
     }
   }
 
