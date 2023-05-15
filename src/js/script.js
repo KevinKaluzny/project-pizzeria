@@ -221,6 +221,8 @@
 
       // console.log(price);
 
+      thisProduct.priceSingle = price;
+
       /* multiply price by amount */
       if (thisProduct.amountWidget?.value !== undefined) {
         price *= thisProduct.amountWidget.value;
@@ -228,8 +230,6 @@
 
       // update calculated price in the HTML
       thisProduct.dom.priceElem.innerHTML = price;
-
-      thisProduct.priceSingle = price;
     }
 
     initAmountWidget() {
