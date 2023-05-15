@@ -408,6 +408,7 @@
       thisCartProduct.params = menuProduct.params;
 
       thisCartProduct.getElements(element);
+      thisCartProduct.initAmountWidget();
 
       console.log('thisCartProduct:', thisCartProduct);
     }
@@ -427,6 +428,7 @@
       const thisCartProduct = this;
 
       thisCartProduct.dom.amountWidgetElem.addEventListener('updated', function() {});
+      thisCartProduct.amountWidget = new AmountWidget(thisCartProduct.dom.amountWidgetElem);
     }
   }
 
