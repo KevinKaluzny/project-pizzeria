@@ -389,12 +389,12 @@
     add(menuProduct) {
       const thisCart = this;
 
-      const generatedHTML = templates.cartProduct(menuProduct.prepareCartProduct());
+      const generatedHTML = templates.cartProduct(menuProduct);
       const generatedDOM = utils.createDOMFromHTML(generatedHTML);
 
       const cartProduct = new CartProduct(menuProduct, generatedDOM);
 
-      thisCart.products.push(menuProduct.prepareCartProduct());
+      thisCart.products.push(menuProduct);
     }
   }
 
