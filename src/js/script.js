@@ -414,7 +414,7 @@
     }
 
     getElements(element) {
-
+      const thisCartProduct = this;
     }
   }
 
