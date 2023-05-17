@@ -561,7 +561,6 @@
       // console.log('settings:', settings);
       // console.log('templates:', templates);
       thisApp.initData();
-      thisApp.initMenu();
       thisApp.initCart();
     },
   };
