@@ -539,6 +539,7 @@
           console.log('parsedResponse', parsedResponse);
 
           /* save parsedResponse as thisapp.data.products */
+          thisApp.data.products = parsedResponse;
 
           /* execute initMenu method */
         });
