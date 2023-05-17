@@ -530,6 +530,20 @@
       const url = settings.db.url + '/' + settings.db.products;
 
       thisApp.data = {};
+
+      fetch(url)
+        .then(function(rawResponse) {
+          return rawResponse.json();
+        })
+        .then(function(parsedResponse) {
+          console.log('parsedResponse', parsedResponse);
+
+          /* save parsedResponse as thisapp.data.products */
+
+          /* execute initMenu method */
+        });
+
+      console.log('thisApp.data', JSON.stringify(thisApp.data));
     },
     initCart: function() {
       const thisApp = this;
