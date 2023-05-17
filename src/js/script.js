@@ -479,6 +479,18 @@
 
       thisCartProduct.dom.wrapper.dispatchEvent(event);
     }
+
+    initActions() {
+      const thisCartProduct = this;
+
+      thisCartProduct.dom.edit.addEventListener('click', function(event) {
+        event.preventDefault();
+      });
+      thisCartProduct.dom.remove.addEventListener('click', function(event) {
+        event.preventDefault();
+        remove();
+      })
+    }
   }
 
   const app = {
