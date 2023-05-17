@@ -459,6 +459,7 @@
       const thisCartProduct = this;
 
       thisCartProduct.dom.amountWidgetElem.addEventListener('updated', function() {
+        thisCartProduct.amount = thisCartProduct.amountWidget.value;
         const price = thisCartProduct.amount * thisCartProduct.priceSingle;
         thisCartProduct.dom.price.innerHTML = price;
       });
