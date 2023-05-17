@@ -535,6 +535,20 @@
         thisCartProduct.remove();
       })
     }
+
+    getData() {
+      const thisCartProduct = this;
+
+      const cartProductData = {};
+      cartProductData.id = thisCartProduct.id;
+      cartProductData.amount = thisCartProduct.amount;
+      cartProductData.price = thisCartProduct.price;
+      cartProductData.priceSingle = thisCartProduct.priceSingle;
+      cartProductData.name = thisCartProduct.name;
+      cartProductData.params = thisCartProduct.params;
+
+      return cartProductData;
+    }
   }
 
   const app = {
