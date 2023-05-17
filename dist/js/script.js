@@ -463,6 +463,7 @@
         thisCartProduct.amount = thisCartProduct.amountWidget.value;
         const price = thisCartProduct.amount * thisCartProduct.priceSingle;
         thisCartProduct.dom.price.innerHTML = price;
+        thisCartProduct.price = price;
       });
     }
   }
