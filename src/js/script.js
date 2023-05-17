@@ -542,6 +542,7 @@
           thisApp.data.products = parsedResponse;
 
           /* execute initMenu method */
+          thisApp.initMenu();
         });
 
       console.log('thisApp.data', JSON.stringify(thisApp.data));
