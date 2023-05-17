@@ -455,6 +455,21 @@
       thisCart.products.splice(indexOfProducts, 1);
       thisCart.update();
     }
+
+    sendOrder() {
+      const thisCart = this;
+
+      const url = settings.db.url + '/' + settings.db.orders;
+
+      const payload = {};
+      payload.address = thisCart.dom.address.value;
+      payload.phone = thisCart.dom.phone.value;
+      payload.totalPrice = thisCart.dom.totalPrice[0].innerHTML;
+      payload.subtotalPrice = thisCart.dom.subtotalPrice.innerHTML;
+      payload.totalNumber = thisCart.dom.totalNumber.innerHTML;
+      payload.deliveryFee = thisCart.dom.deliveryFee.innerHTML;
+      payload.products = [];
+    }
   }
 
   class CartProduct {
