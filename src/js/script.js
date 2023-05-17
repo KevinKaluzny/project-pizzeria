@@ -489,7 +489,7 @@
       });
       thisCartProduct.dom.remove.addEventListener('click', function(event) {
         event.preventDefault();
-        remove();
+        thisCartProduct.remove();
       })
     }
   }
