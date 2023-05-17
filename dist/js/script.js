@@ -469,6 +469,9 @@
       payload.totalNumber = thisCart.dom.totalNumber.innerHTML;
       payload.deliveryFee = thisCart.dom.deliveryFee.innerHTML;
       payload.products = [];
+      for (let prod of thisCart.products) {
+        payload.products.push(prod.getData());
+      }
     }
   }
 
