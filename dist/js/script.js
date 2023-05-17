@@ -442,6 +442,7 @@
 
       thisCartProduct.getElements(element);
       thisCartProduct.initAmountWidget();
+      this.initActions();
     }
 
     getElements(element) {
