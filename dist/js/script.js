@@ -420,8 +420,10 @@
         subtotalPrice += product.price; 
       }
 
-      if (thisCart.products !== []) {
+      if (thisCart.products.length !== 0) {
         thisCart.totalPrice = subtotalPrice + deliveryFee;
+      } else {
+        thisCart.totalPrice = 0;
       }
 
       thisCart.dom.deliveryFee.innerHTML = deliveryFee;
