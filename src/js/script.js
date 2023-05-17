@@ -527,6 +527,8 @@
     initData: function () {
       const thisApp = this;
 
+      const url = settings.db.url + '/' + settings.db.products;
+
       thisApp.data = {};
     },
     initCart: function() {
