@@ -431,6 +431,15 @@
       }
       thisCart.dom.totalNumber.innerHTML = totalNumber;
     }
+
+    remove(productToRemove) {
+      const thisCart = this;
+
+      productToRemove.dom.wrapper.innerHTML = '';
+      const indexOfProducts = thisCart.products.indexOf(productToRemove);
+      thisCart.products.splice(indexOfProducts, 1);
+      thisCart.update();
+    }
   }
 
   class CartProduct {
