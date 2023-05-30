@@ -255,5 +255,15 @@
         "starters": ["lemonWater"]
       }
     ],
-    "bookings": []
+    "bookings": [
+      {
+         "id": 1,
+         "date": "2023-05-30",
+         "hour": "12:00",
+         "table": 1,
+         "duration": 3,
+         "ppl": 4,
+         "starters": ["water"]
+       }
+    ]
  }
