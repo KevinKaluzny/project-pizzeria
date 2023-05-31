@@ -7,6 +7,8 @@ import HourPicker from "./HourPicker.js";
 class Booking {
     constructor(element) {
         this.element = element;
+        this.selectedTable = 0;
+        this.starters = [];
 
         this.render(this.element);
         this.initWidgets();
@@ -113,6 +115,8 @@ class Booking {
 
             this.booked[date][hourBlock].push(table);
         }
+
+        console.log(this.booked[date]);
     }
 
     updateDOM() {
@@ -140,6 +144,7 @@ class Booking {
                 &&
                 this.booked[this.date][this.hour].includes(tableId)
             )  {
+                console.log(table);
                 table.classList.add(classNames.booking.tableBooked);
             } else {
                 table.classList.remove(classNames.booking.tableBooked);
@@ -165,11 +170,16 @@ class Booking {
     
         this.dom.tables = this.dom.wrapper.querySelectorAll(select.booking.tables);
         this.dom.floorPlan = this.dom.wrapper.querySelector(select.booking.floorPlan);
+
+        this.dom.formSubmit = this.dom.wrapper.querySelector(select.booking.formSubmit);
+        this.dom.phone = this.dom.wrapper.querySelector(select.booking.phone);
+        this.dom.address = this.dom.wrapper.querySelector(select.booking.address);
+        this.dom.checkboxes = this.dom.wrapper.querySelector(select.booking.checkboxes);
     }
 
     initWidgets() {
-        new AmountWidget(this.dom.peopleAmount);
-        new AmountWidget(this.dom.hoursAmount);
+        this.peopleAmount = new AmountWidget(this.dom.peopleAmount);
+        this.hoursAmount = new AmountWidget(this.dom.hoursAmount);
         this.datePicker = new DatePicker(this.dom.datePicker);
         this.hourPicker = new HourPicker(this.dom.hourPicker);
 
@@ -190,12 +200,64 @@ class Booking {
 
             if (!clickedElem.classList.contains(select.booking.tableBooked)) {
                 clickedElem.classList.toggle(classNames.booking.tableClicked);
-                if (clickedElem !== selectedTable) {
+                if (selectedTable !== null && clickedElem !== selectedTable) {
                     selectedTable.classList.remove(classNames.booking.tableClicked);
                 }
                 thisBooking.selectedTable = clickedElem.getAttribute(settings.booking.tableIdAttribute);
             }
         });
+        this.dom.formSubmit.addEventListener('click', function(event) {
+            event.preventDefault();
+            thisBooking.sendBooking();
+        });
+        this.dom.checkboxes.addEventListener('change', function (event) {
+          const clickedElem = event.target;
+    
+          if (clickedElem.tagName == 'INPUT' && clickedElem.getAttribute('type') && clickedElem.getAttribute('name')) {
+            const value = clickedElem.getAttribute('value');
+    
+            if (clickedElem.checked == true) {
+              thisBooking.starters.push(value);
+            } else {
+              const indexOf = thisBooking.starters.indexOf(value);
+              thisBooking.starters.splice(indexOf, 1);
+            }
+          }
+          
+          console.log(thisBooking.starters);
+        });
+    }
+
+    sendBooking() {
+        const url = settings.db.url + '/' + settings.db.booking;
+
+        const payload = {
+            "date": this.datePicker.value,
+            "hour": this.hourPicker.value,
+            "table": this.selectedTable,
+            "duration": this.hoursAmount.value,
+            "ppl": this.peopleAmount.value,
+            "starters": this.starters,
+            "phone": this.dom.phone.value,
+            "address": this.dom.address.value,
+        };
+        
+        const options = {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(payload),
+        };
+        
+        fetch(url, options)
+            .then(rawResponse => rawResponse.json())
+            .then(parsedResponse => {
+                console.log(parsedResponse)
+            });
+
+        this.makeBooked(this.datePicker.value, this.hourPicker.value, this.hoursAmount.value, parseInt(this.selectedTable));
+        this.updateDOM();
     }
 }
 

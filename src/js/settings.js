@@ -45,6 +45,10 @@ export const select = {
         tables: '.floor-plan .table',
         floorPlan: '.floor-plan',
         selectedTable: '.floor-plan .table.clicked',
+        formSubmit: '.booking-form [type="submit"]',
+        phone: '.booking-form [name="phone"]',
+        address: '.booking-form [name="address"]',
+        checkboxes: '.booking-form .checkboxes',
     },
     nav: {
         links: '.main-nav a',
