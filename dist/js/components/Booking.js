@@ -11,6 +11,7 @@ class Booking {
         this.render(this.element);
         this.initWidgets();
         this.getData();
+        this.initActions();
     }
 
     getData() {
@@ -62,9 +63,9 @@ class Booking {
                 eventsRepeatResponse.json(),
             ]);
         }).then(function ([bookings, eventsCurrent, eventsRepeat]) {
-            console.log(bookings);
-            console.log(eventsCurrent);
-            console.log(eventsRepeat);
+            // console.log(bookings);
+            // console.log(eventsCurrent);
+            // console.log(eventsRepeat);
             thisBooking.parseData(bookings, eventsCurrent, eventsRepeat);
         });
     }
@@ -144,6 +145,10 @@ class Booking {
                 table.classList.remove(classNames.booking.tableBooked);
             }
         }
+
+        for (let table of this.dom.tables) {
+            table.classList.remove(classNames.booking.tableClicked);
+        }
     }
 
     render(element) {
@@ -159,6 +164,7 @@ class Booking {
         this.dom.hourPicker = this.dom.wrapper.querySelector(select.widgets.hourPicker.wrapper);
     
         this.dom.tables = this.dom.wrapper.querySelectorAll(select.booking.tables);
+        this.dom.floorPlan = this.dom.wrapper.querySelector(select.booking.floorPlan);
     }
 
     initWidgets() {
@@ -167,8 +173,28 @@ class Booking {
         this.datePicker = new DatePicker(this.dom.datePicker);
         this.hourPicker = new HourPicker(this.dom.hourPicker);
 
+        const thisBooking = this;
+
         this.dom.wrapper.addEventListener('updated', function() {
-            this.updateDOM();
+            thisBooking.updateDOM();
+        });
+    }
+
+    initActions() {
+        const thisBooking = this;
+
+        this.dom.floorPlan.addEventListener('click', function(event) {
+            event.preventDefault();
+            const clickedElem = event.target;
+            const selectedTable = document.querySelector(select.booking.selectedTable);
+
+            if (!clickedElem.classList.contains(select.booking.tableBooked)) {
+                clickedElem.classList.toggle(classNames.booking.tableClicked);
+                if (clickedElem !== selectedTable) {
+                    selectedTable.classList.remove(classNames.booking.tableClicked);
+                }
+                thisBooking.selectedTable = clickedElem.getAttribute(settings.booking.tableIdAttribute);
+            }
         });
     }
 }
