@@ -1,0 +1,179 @@
+#home .container {
+    background-color: $color-light;
+    margin-top: 40px;
+    padding: 40px 50px;
+    border-radius: $radius;
+
+    section {
+        margin: 50px 0;
+    }
+}
+
+.card {
+    height: 150px;
+    border-radius: $radius;
+    margin: 5px;
+    position: relative;
+
+    &:not(.opening-hours) {
+        h2 {
+            @extend .h1;
+            position: absolute;
+            top: 50px;
+            transition: 0.5s;
+        }
+
+        p {
+            position: absolute;
+            top: 150px;
+            opacity: 0;
+            transition: 0.5s;
+        }
+
+        &:hover h2 {
+            position: absolute;
+            top: 40px;
+        }
+
+        &:hover p {
+            position: absolute;
+            top: 80px;
+            opacity: 1;
+        }
+    }
+}
+
+.card-body {
+    width: 100%;
+    color: $color-light;
+    position: absolute;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.opening-hours {
+    background-color: $color-main;
+
+    .card-body {
+        top: 25px;
+
+        h2 {
+            @extend .h1;
+        }
+
+        p {
+            display: block;
+            text-transform: uppercase;
+        }
+    }
+}
+
+.photo-container {
+    width: 100%;
+    height: 100%;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: $radius;
+}
+
+/* Carousel */
+
+#carousel {
+    .carousel-indicators button {
+        width: 16px;
+        height: 16px;
+        border-radius: $radius;
+        background-color: rgb(190, 190, 190);
+
+        &.active {
+            background-color: $color-dark;
+        }
+    }
+
+    .carousel-caption {
+        color: $color-dark;
+        position: relative;
+        text-align: left;
+        left: 0;
+    }
+
+    img {
+        width: 200px;
+        height: 200px;
+    }
+}
+
+/* Gallery */
+
+#gallery {
+    .row > * {
+        padding: 0;
+    }
+
+    .photo-container {
+        margin-bottom: 10px;
+        width: 200px;
+        height: 200px;
+        position: relative;
+        float: left;
+    }
+
+    img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .layer {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        z-index: 1;
+        display: none;
+
+        .see_details {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+
+            i {
+                margin: 10px;
+                font-size: 20px;
+                color: $color-light;
+            }
+
+            i:hover {
+                color: $color-main;
+            }
+        }
+    }
+
+    .layer::after {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        content: '';
+        background: #2c3e50;
+        opacity: 0.5;
+        z-index: -1;
+    }
+
+    .photo-container:hover .layer {
+        display: block;
+    }
+
+    a {
+        color: $color-main;
+    }
+}
