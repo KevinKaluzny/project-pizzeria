@@ -114,9 +114,9 @@ class Product {
           const option = param.options[optionId];
           // console.log(optionId, option);
 
-          if (option.hasOwnProperty('default') && !formData[paramId].includes(optionId)) {
+          if (Object.prototype.hasOwnProperty.call(option, 'default') && !formData[paramId].includes(optionId)) {
             price -= option.price;
-          } else if (!option.hasOwnProperty('default') && formData[paramId].includes(optionId)) {
+          } else if (!Object.prototype.hasOwnProperty.call(option, 'default') && formData[paramId].includes(optionId)) {
             price += option.price;
           }
 
