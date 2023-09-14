@@ -30,8 +30,10 @@
     "author": "",
     "license": "ISC",
     "devDependencies": {
+        "@babel/core": "^7.22.17",
+        "@babel/eslint-parser": "^7.22.15",
+        "@babel/preset-env": "^7.22.15",
         "autoprefixer": "^10.2.4",
-        "babel-eslint": "^10.1.0",
         "browser-sync": "^2.26.3",
         "copyfiles": "^2.1.0",
         "eslint": "^5.14.1",
