@@ -1,4 +1,4 @@
-import { select, classNames, templates } from '../settings.js';
+import { select, classNames, templates, settings } from '../settings.js';
 import { utils } from '../utils.js';
 import AmountWidget from './AmountWidget.js';
 
@@ -89,6 +89,7 @@ class Product {
         event.preventDefault();
         thisProduct.processOrder();
         thisProduct.addToCart();
+        thisProduct.refreshHTML();
       });
     }
 
@@ -207,6 +208,37 @@ class Product {
       }
 
       return optionsSummary;
+    }
+
+    refreshHTML() {
+      const thisProduct = this;
+
+      const inputs = document.querySelectorAll('#' + thisProduct.data.id + ' input:not(.amount)');
+      const options = document.querySelectorAll('#' + thisProduct.data.id + ' option');
+
+      for (let input of inputs) {
+        const paramId = input.getAttribute('name');
+        const optionId = input.getAttribute('id');
+
+        if (thisProduct.data.params[paramId].options[optionId].hasOwnProperty('default')) {
+          input.checked = true;
+        } else {
+          input.checked = false;
+        }
+      }
+
+      for (let option of options) {
+        const paramId = option.parentElement.getAttribute('name');
+        const optionId = option.getAttribute('value');
+
+        if (thisProduct.data.params[paramId].options[optionId].hasOwnProperty('default')) {
+          option.selected = true;
+        } else {
+          option.selected = false;
+        }
+      }
+      
+      thisProduct.amountWidget.setValue(settings.amountWidget.defaultValue);
     }
   }
 
