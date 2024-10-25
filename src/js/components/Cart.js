@@ -123,6 +123,8 @@ class Cart {
       };
 
       fetch(url, options);
+
+      thisCart.dom.productList.innerHTML = ''; // Clears the cart
     }
   }
 
