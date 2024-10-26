@@ -124,7 +124,9 @@ class Cart {
 
       fetch(url, options);
 
-      thisCart.dom.productList.innerHTML = ''; // Clears the cart
+      while (thisCart.products.length > 0) {
+        thisCart.remove(thisCart.products[0]);
+      }
     }
   }
 
