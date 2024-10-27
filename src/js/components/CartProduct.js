@@ -74,7 +74,11 @@ class CartProduct {
       cartProductData.price = thisCartProduct.price;
       cartProductData.priceSingle = thisCartProduct.priceSingle;
       cartProductData.name = thisCartProduct.name;
-      cartProductData.params = thisCartProduct.params;
+      cartProductData.params = {};
+      for (let param in thisCartProduct.params) {
+        delete thisCartProduct.params[param].label;
+        cartProductData.params[param] = thisCartProduct.params[param];
+      }
 
       return cartProductData;
     }
