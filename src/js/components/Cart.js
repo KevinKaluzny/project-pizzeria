@@ -46,8 +46,18 @@ class Cart {
 
       thisCart.dom.form.addEventListener('submit', function(event) {
         event.preventDefault();
-        thisCart.sendOrder();
-      })
+        if (thisCart.validate(true, [thisCart.dom.address, thisCart.dom.phone])) {
+          thisCart.sendOrder();
+        }
+      });
+
+      thisCart.dom.address.addEventListener('change', function(event) {
+        thisCart.validate(false, [event.target]);
+      });
+
+      thisCart.dom.phone.addEventListener('change', function(event) {
+        thisCart.validate(false, [event.target]);
+      });
     }
 
     add(menuProduct) {
@@ -127,6 +137,30 @@ class Cart {
       while (thisCart.products.length > 0) {
         thisCart.remove(thisCart.products[0]);
       }
+    }
+
+    validate(checkProductsListOrNot, inputs) {
+      const thisCart = this;
+      let dataIsValid = true;
+
+      if (checkProductsListOrNot) {
+        if (thisCart.products.length == 0) {
+          dataIsValid = false;
+          alert('There are no products in the cart.');
+        }
+      }
+
+      for (let input of inputs) {
+        if (input.checkValidity()) {
+          input.classList.remove('error');
+        } else {
+          dataIsValid = false;
+          input.classList.add('error');
+          input.reportValidity();
+        }
+      }
+
+      return dataIsValid;
     }
   }
 

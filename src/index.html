@@ -56,9 +56,9 @@
                 </li>
               </ul>
               <div class="cart__order-confirmation">
-                <input type="tel" name="phone" placeholder="Your phone">
-                <input type="text" name="address" placeholder="Your address">
-                <button type="submit" class="btn-secondary">Order</button>
+                <input type="tel" name="phone" placeholder="Your phone (format: 123 456 789)" minlength="9" maxlength="14" required pattern="[0-9]{3} [0-9]{3} [0-9]{3}">
+                <input type="text" name="address" placeholder="Your address" maxlength="100" required>
+                <button type="submit" class="btn-secondary" formnovalidate>Order</button>
               </div>
             </form>
           </div>
